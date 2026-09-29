@@ -2,7 +2,7 @@
 
 Provera sajta i priprema projekta.
 
-**[sajtzafirmu.com](https://sajtzafirmu.com/)** · [English](README.md)
+**[sajtzafirmu.com](https://sajtzafirmu.com/)** · [Studija: Bata Stanković](https://sajtzafirmu.com/primeri/bata-stankovic/) · [English](README.md)
 
 > [!NOTE]
 > Samostalni projekat D. Svilenkovića. Produkcijski izvor ostaje u privatnom repozitorijumu; ovaj javni repozitorijum dokumentuje izvedeni rad.
@@ -10,7 +10,7 @@ Provera sajta i priprema projekta.
 <table>
   <tr><td><b>Vrsta</b></td><td>Provera sajta i priprema projekta</td></tr>
   <tr><td><b>Jezici</b></td><td>srpski i engleski</td></tr>
-  <tr><td><b>Javne rute</b></td><td>22 canonical stranica</td></tr>
+  <tr><td><b>Javne rute</b></td><td>24 canonical stranica</td></tr>
   <tr><td><b>Uloga</b></td><td>istraživanje, dizajn, razvoj, SEO, hosting i održavanje</td></tr>
   <tr><td><b>Tehnologije</b></td><td>Astro, TypeScript, CSS, PHP 8.3, SQLite, nginx</td></tr>
 </table>
