@@ -1,42 +1,58 @@
+<a href="https://sajtzafirmu.com/"><img src="media/cover.jpg" alt="Sajt za firmu, home page on a laptop and a phone" width="100%"></a>
+
 # Sajt za firmu
 
-A website preparation and diagnostic site that turns technical checks into a clear plan for a business owner.
+Tools for owners who are about to order or fix a website: a site check, a brief, a privacy policy generator and sample texts.
 
-**[sajtzafirmu.com](https://sajtzafirmu.com/)** · [Bata Stanković case study](https://sajtzafirmu.com/en/examples/bata-stankovic-accounting/) · [Srpski](README.sr.md)
+**[sajtzafirmu.com](https://sajtzafirmu.com/)** · [Case study (in Serbian)](https://svilenkovic.rs/radovi/sajt-za-firmu) · [Srpski](README.sr.md)
 
 > [!NOTE]
-> This is an independent project by D. Svilenković. The production source stays in a private repository; this public repository documents the work.
+> My own project, not client work. The source code is private. This page describes what the site does and how it is built.
 
 <table>
-  <tr><td><b>Type</b></td><td>Website audit and preparation tool</td></tr>
-  <tr><td><b>Languages</b></td><td>Serbian and English</td></tr>
-  <tr><td><b>Public routes</b></td><td>24 canonical pages</td></tr>
-  <tr><td><b>Role</b></td><td>Research, design, development, SEO, hosting and maintenance</td></tr>
-  <tr><td><b>Stack</b></td><td>Astro, TypeScript, CSS, PHP 8.3, SQLite, nginx</td></tr>
+  <tr><td><b>Client</b></td><td>Own project</td></tr>
+  <tr><td><b>Industry</b></td><td>Website checks and preparation for business owners</td></tr>
+  <tr><td><b>Location</b></td><td>Serbia</td></tr>
+  <tr><td><b>Type</b></td><td>Website with tools and a site checker</td></tr>
+  <tr><td><b>My role</b></td><td>Research, design, development, SEO and hosting</td></tr>
+  <tr><td><b>Stack</b></td><td>Astro 7, GSAP DrawSVG, PHP 8.3, SQLite, nginx</td></tr>
 </table>
 
-## Purpose
+## About the project
 
-Most owners know that a site feels slow or unclear, but they do not have a useful way to describe the problem. This site turns domains, pages, metadata and contact details into a readable diagnostic path before a redesign begins.
+Before a business orders a new site or fixes the old one, it usually needs three answers: what is wrong with the current site, what exactly it is ordering and which legal texts have to be on the page. Sajt za firmu has a tool for each, with no account and no email address required. The brief and the privacy policy generator run only in the browser and send nothing.
 
-## Design direction
-
-The visual language is a graphite diagnostic chamber with orange scan lines. Real page elements enter the scanner one by one, so the main scroll scene also explains the service.
+The site check is the one part that needs a server. A PHP 8.3 service opens the home page and one contact page and returns a report of 36 items in six groups, from the certificate and redirects to the company details required by the e-commerce law. A service that fetches any address a visitor types has to be careful, so before each request it resolves the name and refuses local and private addresses, and it runs in its own PHP-FPM pool without functions for starting programs.
 
 ## What I built
 
-- A structured preparation path before design or migration
-- Checks presented in language a nontechnical owner can act on
-- A working site verification tool with its own isolated API account
-- Contact requests stored before they enter the delivery queue
-- Accessible keyboard states and an explicit alternative to animated scanning
+- A site check with 36 items in six groups, each with what to do about it
+- At most twelve requests to the checked site, results cached for ten minutes in SQLite and a rate limit keyed on a hash of the IP address
+- A report that also works without JavaScript: a plain form gets the same report as an HTML page
+- A brief that downloads for Word or prints, and a privacy policy generator that follows Article 23 of the data protection law
+- Ticks drawn with GSAP DrawSVG, loaded only when a visitor starts a check
 
-## Release checks
+## Results
 
-Every canonical route was checked at 390, 768, 1440 and 1920 px. The release was also tested without JavaScript and with reduced motion. Live checks covered HTTPS, redirects, response headers, structured data, sitemap files, protected paths and invalid contact requests without sending test mail.
+| | Performance | Accessibility | Best practices | SEO |
+| :-- | :-: | :-: | :-: | :-: |
+| Mobile | 100 | 100 | 100 | 100 |
+| Desktop | 100 | 100 | 100 | 100 |
 
-These are engineering checks, not claims about search ranking or field performance.
+PageSpeed Insights, lab test of the live site, October 2026. Security headers: 6 of 6. axe accessibility check: no violations. Structured data: `FAQPage`, `Person`.
+
+## Screenshots
+
+<table>
+  <tr>
+    <td width="68%" valign="top"><img src="media/desktop.webp" alt="Sajt za firmu, home page on a 1440 px screen"></td>
+    <td width="32%" valign="top"><img src="media/mobile.webp" alt="Sajt za firmu, home page on a phone"></td>
+  </tr>
+</table>
+
+<img src="media/inner-1.webp" alt="Site check: type an address and get a report">
+<sub>Site check: type an address and get a report</sub>
 
 ---
 
-<sub>Designed and built by [D. Svilenković](https://svilenkovic.com).</sub>
+<sub>Built by [D. Svilenković](https://svilenkovic.com).</sub>
